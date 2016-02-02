@@ -7,6 +7,8 @@
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
+    "conventional-changelog": "^0.5.3",
+    "conventional-github-releaser": "^0.5.3",
     "conventional-recommended-bump": "0.0.3",
     "tape": "^4.4.0"
   },
