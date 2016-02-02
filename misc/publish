@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+set -x
+
+ls node_modules 2> /dev/null 1>&2 && rm -r node_modules
+git pull --rebase
+npm install
+npm test
+
+cp package.json package.json.current
+
+if [ $(git tag | wc -l) != 0 ]; then
+  # bump version
+  bump=`npm run -s release:bump`
+  echo ${1:-$bump}
+  npm --no-git-tag-version version ${1:-$bump} &>/dev/null
+fi
+
+version=`npm run -s version`
+
+# build & commit changelog
+npm run -s release:build-changelog
+git add CHANGELOG.md
+git commit -m "docs(CHANGELOG): $version"
+
+# git tag
+mv -f package.json.current package.json
+npm version $version -m "chore(release): %s"
+
+# release 
+git push --follow-tags
+npm run -s release:github
+npm publish

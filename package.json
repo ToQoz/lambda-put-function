@@ -1,0 +1,32 @@
+{
+  "name": "lambda-put-function",
+  "version": "1.0.0",
+  "description": "creates or updates AWS Lambda's function",
+  "main": "index.js",
+  "dependencies": {
+    "object-assign": "^4.0.1"
+  },
+  "devDependencies": {
+    "conventional-recommended-bump": "0.0.3",
+    "tape": "^4.4.0"
+  },
+  "scripts": {
+    "test": "tape test/*.js",
+    "version": "node -e 'console.log(require(\"./package.json\").version)'",
+    "release:bump": "conventional-recommended-bump -p angular",
+    "release:build-changelog": "conventional-changelog -p angular -i CHANGELOG.md -w",
+    "release:github": "conventional-github-releaser -p angular"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ToQoz/lambda-put-function.git"
+  },
+  "homepage": "https://github.com/ToQoz/lambda-put-function",
+  "keywords": [
+    "aws",
+    "lambda",
+    "function"
+  ],
+  "author": "Takatoshi Matsumoto",
+  "license": "MIT"
+}
