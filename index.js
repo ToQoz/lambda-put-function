@@ -25,9 +25,11 @@ function update(lambda, params, cb) {
   delete params.Runtime;
 
   var code = assign({}, params.Code, {
-    FunctionName: params.FunctionName
+    FunctionName: params.FunctionName,
+    Publish: !!params.Publish,
   });
   delete params.Code;
+  delete params.Publish;
 
   return lambda.updateFunctionCode(code, function(err, data) {
     if (err) {
