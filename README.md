@@ -59,7 +59,7 @@ This function creates or updates AWS Lambda's function.
      - MemorySize: - `Integer`
      - Publish: - `Boolean`
      - Timeout: - `Integer`
-  - cb - `Function(err, data) {}` - called with following arguments on the end of operation
+  - cb - `function(err, data) {}` - called with following arguments on the end of operation
     - Arguments
       - err - `Error` - the error object from aws-sdk. Set to `null` if the operation is successful.
       - data - `map` - the data from aws-sdk. Set to `null` if the operation error occur.
