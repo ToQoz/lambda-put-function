@@ -16,15 +16,21 @@ npm install
 npm test
 
 # bump version
-BUMP=`npm run -s release:bump`
-y_or_exit "${1:-$BUMP} release? "
+_BUMP=`npm run -s release:bump`
+RECOMMENDED=${1:-$_BUMP}
+/bin/echo -n "release: [major/minor/patch] (recommended:$RECOMMENDED) "
+read BUMP
+if [ -z "$BUMP" ]; then
+  BUMP=$RECOMMENDED
+fi
 
+old_version=`npm run -s version`
 cp package.json _package.json
-npm --no-git-tag-version version ${1:-$BUMP} &>/dev/null
+npm --no-git-tag-version version $BUMP &>/dev/null
 version=`npm run -s version`
 mv -f _package.json package.json
 
-y_or_exit "release $version? "
+y_or_exit "release $old_version -> $version? "
 
 # build & commit changelog
 npm run -s release:build-changelog
