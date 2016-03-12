@@ -93,6 +93,6 @@ function objectReject(obj, keys) {
 
 function checksum(data) {
   var hash = crypto.createHash('sha256');
-  hash.update(params.ZipFile);
+  hash.update(data);
   return hash.digest('base64');
 }
