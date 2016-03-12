@@ -42,7 +42,7 @@ test("put() calls update() if the function exists", function (t) {
 
   var lambda = assign(lambdaMethods(), {
     getFunction: function(params, cb) {
-      cb(null, {});
+      cb(null, {Code: {}, Configuration: {}});
     }
   });
 
@@ -58,7 +58,7 @@ test("put() calls given cb() with error if unexpected error occurs on exists()",
 
   var lambda = assign(lambdaMethods(), {
     getFunction: function(params, cb) {
-      cb({statusCode: 500}, {});
+      cb({statusCode: 500}, {Code: {}, Configuration: {}});
     }
   });
 
