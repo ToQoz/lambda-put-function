@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/ToQoz/lambda-put-function/compare/v1.1.0...v1.1.1) (2016-03-12)
+
+
+### Bug Fixes
+
+* **lambda-put-function:** fix ReferenceError ([6708dce](https://github.com/ToQoz/lambda-put-function/commit/6708dce))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/ToQoz/lambda-put-function/compare/v1.0.1...v1.1.0) (2016-03-12)
 
