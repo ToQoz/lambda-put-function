@@ -1,6 +1,6 @@
 {
   "name": "lambda-put-function",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "creates or updates AWS Lambda's function",
   "main": "index.js",
   "dependencies": {
